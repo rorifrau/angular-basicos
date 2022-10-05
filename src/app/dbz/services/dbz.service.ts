@@ -1,9 +1,12 @@
-import { Injectable } from '@angular/core';
-import { Personaje } from '../interfaces/dbz.interface';
-
+import { Injectable } from "@angular/core";
+import { Personaje } from "../interface/dbz.interface";
 
 @Injectable()
-export class DbzService {
+export class DbzService{
+
+    constructor(){
+        console.log('Servicio inicializado');
+    }
 
     private _personajes: Personaje[] = [
         {
@@ -12,18 +15,19 @@ export class DbzService {
         },
         {
           nombre: 'Vegeta',
-          poder: 7500
+          poder: 7000
         }
-    ];
+      ];
 
-    get personajes(): Personaje[] {
+    
+      get personajes(): Personaje[]{
         return [...this._personajes];
-    }
+      }
 
-    constructor() {}
 
-    agregarPersonaje( personaje: Personaje ) {
-        this._personajes.push( personaje );
-    }
+
+      agregarPersonaje(personaje: Personaje){
+        this._personajes.push(personaje);
+      }
 
 }
